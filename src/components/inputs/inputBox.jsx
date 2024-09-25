@@ -1,6 +1,7 @@
 import './inputBox.css';
 
 function InputBox({ label, value, onChange }) {
+  console.log(onChange);
   return (
     <div>
       <label>{label}</label>

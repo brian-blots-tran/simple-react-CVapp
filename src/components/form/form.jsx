@@ -1,34 +1,34 @@
 //css
-import "./form.css";
-import InputArea from "../inputs/inputArea";
-import InputBox from "../inputs/inputBox";
-import SubForm from "../subForm/subForm";
-import { useState } from "react";
+import './form.css';
+import InputArea from '../inputs/inputArea';
+import SubForm from '../subForm/subForm';
+import { useState } from 'react';
 function Form() {
   const [formData, setFormData] = useState({
-    Header: { name: "", occupation: "", summary: "" },
-    Experience: { date: "", title: "", company: "", description: "" },
-    Education: { degree: "", institution: "" },
-    Achievements: { title: "", description: "" },
-    Projects: { title: "", description: "" },
-    Other: "",
+    Header: { name: '', occupation: '', summary: '' },
+    Experience: { date: '', title: '', company: '', description: '' },
+    Education: { degree: '', institution: '' },
+    Achievements: { title: '', description: '' },
+    Projects: { title: '', description: '' },
+    Other: '',
   });
 
   function handleChangeHeader(e) {
     switch (e.target.attributes.label.value) {
-      case "Summary":
+      case 'summary':
         setFormData({
           ...formData,
           Header: { ...formData.Header, summary: e.target.value },
         });
         break;
-      case "Name":
+      case 'name':
+        console.log('Name Changing');
         setFormData({
           ...formData,
           Header: { ...formData.Header, name: e.target.value },
         });
         break;
-      case "Occupation":
+      case 'occupation':
         setFormData({
           ...formData,
           Header: { ...formData.Header, occupation: e.target.value },
@@ -41,25 +41,25 @@ function Form() {
 
   function handleChangeExperience(e) {
     switch (e.target.attributes.label.value) {
-      case "Date":
+      case 'date':
         setFormData({
           ...formData,
           Experience: { ...formData.Experience, dateRange: e.target.value },
         });
         break;
-      case "Title":
+      case 'title':
         setFormData({
           ...formData,
           Experience: { ...formData.Experience, title: e.target.value },
         });
         break;
-      case "Company":
+      case 'company':
         setFormData({
           ...formData,
           Experience: { ...formData.Experience, company: e.target.value },
         });
         break;
-      case "Description":
+      case 'description':
         setFormData({
           ...formData,
           Experience: { ...formData.Experience, description: e.target.value },
@@ -72,13 +72,13 @@ function Form() {
 
   function handleChangeEducation(e) {
     switch (e.target.attributes.label.value) {
-      case "Degree":
+      case 'degree':
         setFormData({
           ...formData,
           Education: { ...formData.Education, degree: e.target.value },
         });
         break;
-      case "Institution":
+      case 'institution':
         setFormData({
           ...formData,
           Education: { ...formData.Education, institution: e.target.value },
@@ -91,13 +91,13 @@ function Form() {
 
   function handleChangeAchievements(e) {
     switch (e.target.attributes.label.value) {
-      case "Title":
+      case 'title':
         setFormData({
           ...formData,
           Achievements: { ...formData.Achievements, title: e.target.value },
         });
         break;
-      case "Description":
+      case 'description':
         setFormData({
           ...formData,
           Achievements: {
@@ -113,13 +113,13 @@ function Form() {
 
   function handleChangeProjects(e) {
     switch (e.target.attributes.label.value) {
-      case "Title":
+      case 'title':
         setFormData({
           ...formData,
           Projects: { ...formData.Projects, title: e.target.value },
         });
         break;
-      case "Description":
+      case 'description':
         setFormData({
           ...formData,
           Projects: { ...formData.Projects, description: e.target.value },
@@ -137,75 +137,64 @@ function Form() {
   }
   return (
     <>
-      <div id="form">
-        {/*<div className='form-section' id='header'>
-          <h1 className='form-section-heading'>Header</h1>
-          <InputBox label={'Name'} onChange={handleChangeHeader} />
-          <InputBox label={'Occupation'} onChange={handleChangeHeader} />
-          <InputArea label={'Summary'} onChange={handleChangeHeader} />
-        </div>
-        <div className='form-section' id='experience'>
-          <h1 className='form-section-heading'>Experience</h1>
-          <InputBox label={'Date'} onChange={handleChangeExperience} />
-          <InputBox label={'Title'} onChange={handleChangeExperience} />
-          <InputBox label={'Company'} onChange={handleChangeExperience} />
-          <InputArea label={'Description'} onChange={handleChangeExperience} />
-        </div>
-        <div className='form-section' id='education'>
-          <h1 className='form-section-heading'>Education</h1>
-          <InputBox label={'Degree'} onChange={handleChangeEducation} />
-          <InputBox label={'Institution'} onChange={handleChangeEducation} />
-        </div>
-        <div className='form-section' id='achievements'>
-          <h1 className='form-section-heading'>Achievements</h1>
-          <InputBox label={'Title'} onChange={handleChangeAchievements} />
-          <InputArea
-            label={'Description'}
-            onChange={handleChangeAchievements}
-          />
-        </div>
-        <div className='form-section' id='projects'>
-          <h1 className='form-section-heading'>Projects</h1>
-          <InputBox label={'Name'} onChange={handleChangeProjects} />
-          <InputArea label={'Description'} onChange={handleChangeProjects} />
-        </div>
+      <div id='form'>
+        <SubForm
+          object={formData.Header}
+          heading={'Intro'}
+          onChange={handleChangeHeader}
+        />
+        <SubForm
+          object={formData.Experience}
+          heading={'Experience'}
+          onchange={handleChangeExperience}
+        />
+        <SubForm
+          object={formData.Education}
+          heading={'Education'}
+          onchange={handleChangeEducation}
+        />
+        <SubForm
+          object={formData.Achievements}
+          heading={'Achievements'}
+          onchange={handleChangeAchievements}
+        />
+        <SubForm
+          object={formData.Projects}
+          heading={'Projects'}
+          onchange={handleChangeProjects}
+        />
         <div className='form-section' id='other'>
           <h1 className='form-section-heading'>Other</h1>
           <InputArea label={'other'} onChange={handleChangeOther} />
-        </div>  */}
-        <SubForm object={formData.Header} head={"Intro"} />
-        <SubForm object={formData.Experience} head={"Experience"} />
-        <SubForm object={formData.Education} head={"Education"} />
-        <SubForm object={formData.Achievements} head={"Achievements"} />
-        <SubForm object={formData.Projects} head={"Projects"} />
+        </div>
       </div>
 
-      <div id="preview">
-        <div className="" id="preview-header">
-          <div className="">{formData.Header.name}</div>
-          <div className="">{formData.Header.occupation}</div>
-          <div className=""> {formData.Header.summary}</div>
+      <div id='preview'>
+        <div className='' id='preview-header'>
+          <div className=''>{formData.Header.name}</div>
+          <div className=''>{formData.Header.occupation}</div>
+          <div className=''> {formData.Header.summary}</div>
         </div>
-        <div className="" id="preview-experience">
-          <div className="">{formData.Experience.dateRange}</div>
-          <div className="">{formData.Experience.title}</div>
-          <div className=""> {formData.Experience.company}</div>
-          <div className=""> {formData.Experience.description}</div>
+        <div className='' id='preview-experience'>
+          <div className=''>{formData.Experience.dateRange}</div>
+          <div className=''>{formData.Experience.title}</div>
+          <div className=''> {formData.Experience.company}</div>
+          <div className=''> {formData.Experience.description}</div>
         </div>
-        <div className="" id="preview-education">
-          <div className="">{formData.Education.degree}</div>
-          <div className="">{formData.Education.institution}</div>
+        <div className='' id='preview-education'>
+          <div className=''>{formData.Education.degree}</div>
+          <div className=''>{formData.Education.institution}</div>
         </div>
-        <div className="" id="preview-achievements">
-          <div className="">{formData.Achievements.title}</div>
-          <div className="">{formData.Achievements.description}</div>
+        <div className='' id='preview-achievements'>
+          <div className=''>{formData.Achievements.title}</div>
+          <div className=''>{formData.Achievements.description}</div>
         </div>
-        <div className="" id="preview-projects">
-          <div className="">{formData.Projects.title}</div>
-          <div className="">{formData.Projects.description}</div>
+        <div className='' id='preview-projects'>
+          <div className=''>{formData.Projects.title}</div>
+          <div className=''>{formData.Projects.description}</div>
         </div>
-        <div className="" id="preview-other">
-          <div className="">{formData.Other}</div>
+        <div className='' id='preview-other'>
+          <div className=''>{formData.Other}</div>
         </div>
       </div>
     </>
