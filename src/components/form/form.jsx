@@ -173,7 +173,11 @@ function Form() {
           <h1 className='form-section-heading'>Other</h1>
           <InputArea label={'other'} onChange={handleChangeOther} />
         </div>  */}
+        <SubForm object={formData.Header} head={"Intro"} />
         <SubForm object={formData.Experience} head={"Experience"} />
+        <SubForm object={formData.Education} head={"Education"} />
+        <SubForm object={formData.Achievements} head={"Achievements"} />
+        <SubForm object={formData.Projects} head={"Projects"} />
       </div>
 
       <div id="preview">
