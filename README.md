@@ -1,8 +1,7 @@
-# React + Vite
+# Simple CV application with react 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository hosts the cv application project from the Odin project found here: https://www.theodinproject.com/lessons/node-path-react-new-cv-application
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The application generates a CV preview from form input fields. The goal of the project is to get acquainted with setting up a react project via Vite. 
+As well as to use a simple form of react's state management with the usetState hook.
+The challenge is to lift state between parent and child components in a form, sub form or input, store and display the information to the user.   
