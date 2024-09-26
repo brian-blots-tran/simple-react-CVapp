@@ -1,9 +1,9 @@
 import './inputArea.css';
-function InputArea({ label, value, onChange }) {
+function InputArea({ label, onChange }) {
   return (
     <div>
       <label>{label}</label>
-      <textarea label={label} value={value} onChange={onChange}></textarea>
+      <textarea label={label} onChange={onChange}></textarea>
     </div>
   );
 }

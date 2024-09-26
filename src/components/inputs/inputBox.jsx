@@ -1,11 +1,11 @@
 import './inputBox.css';
 
-function InputBox({ label, value, onChange }) {
-  console.log(onChange);
+function InputBox({ label, onChange }) {
+  console.log('firing');
   return (
     <div>
       <label>{label}</label>
-      <input label={label} value={value} onChange={onChange} />
+      <input label={label} onChange={onChange} />
     </div>
   );
 }

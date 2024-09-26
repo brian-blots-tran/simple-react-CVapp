@@ -2,109 +2,96 @@
 import './form.css';
 import InputArea from '../inputs/inputArea';
 import SubForm from '../subForm/subForm';
-import { useState } from 'react';
-function Form(handleData) {
-  const [formData, setFormData] = useState({
-    Header: { name: '', occupation: '', summary: '' },
-    Experience: { date: '', title: '', company: '', description: '' },
-    Education: { degree: '', institution: '' },
-    Achievements: { title: '', description: '' },
-    Projects: { title: '', description: '' },
-    Other: '',
-  });
 
+function Form({ data, handleData }) {
   function handleChangeHeader(e) {
     switch (e.target.attributes.label.value) {
       case 'summary':
-        setFormData({
-          ...formData,
-          Header: { ...formData.Header, summary: e.target.value },
+        handleData({
+          ...data,
+          Header: { ...data.Header, summary: e.target.value },
         });
         break;
       case 'name':
-        console.log('Name Changing');
-        setFormData({
-          ...formData,
-          Header: { ...formData.Header, name: e.target.value },
+        handleData({
+          ...data,
+          Header: { ...data.Header, name: e.target.value },
         });
         break;
       case 'occupation':
-        setFormData({
-          ...formData,
-          Header: { ...formData.Header, occupation: e.target.value },
+        handleData({
+          ...data,
+          Header: { ...data.Header, occupation: e.target.value },
         });
         break;
       default:
         break;
     }
-    handleData(formData);
   }
-
   function handleChangeExperience(e) {
     switch (e.target.attributes.label.value) {
       case 'date':
-        setFormData({
-          ...formData,
-          Experience: { ...formData.Experience, dateRange: e.target.value },
+        handleData({
+          ...data,
+          Experience: { ...data.Experience, date: e.target.value },
         });
         break;
       case 'title':
-        setFormData({
-          ...formData,
-          Experience: { ...formData.Experience, title: e.target.value },
+        handleData({
+          ...data,
+          Experience: { ...data.Experience, title: e.target.value },
         });
         break;
       case 'company':
-        setFormData({
-          ...formData,
-          Experience: { ...formData.Experience, company: e.target.value },
+        handleData({
+          ...data,
+          Experience: { ...data.Experience, company: e.target.value },
         });
         break;
       case 'description':
-        setFormData({
-          ...formData,
-          Experience: { ...formData.Experience, description: e.target.value },
+        handleData({
+          ...data,
+          Experience: { ...data.Experience, description: e.target.value },
         });
         break;
       default:
         break;
     }
-    handleData(formData);
   }
 
   function handleChangeEducation(e) {
+    console.log('Changing Education Data');
     switch (e.target.attributes.label.value) {
       case 'degree':
-        setFormData({
-          ...formData,
-          Education: { ...formData.Education, degree: e.target.value },
+        handleData({
+          ...data,
+          Education: { ...data.Education, degree: e.target.value },
         });
         break;
       case 'institution':
-        setFormData({
-          ...formData,
-          Education: { ...formData.Education, institution: e.target.value },
+        handleData({
+          ...data,
+          Education: { ...data.Education, institution: e.target.value },
         });
         break;
       default:
         break;
     }
-    handleData(formData);
   }
 
   function handleChangeAchievements(e) {
     switch (e.target.attributes.label.value) {
       case 'title':
-        setFormData({
-          ...formData,
-          Achievements: { ...formData.Achievements, title: e.target.value },
+        handleData({
+          ...data,
+          Achievements: { ...data.Achievements, title: e.target.value },
         });
         break;
       case 'description':
-        setFormData({
-          ...formData,
+        handleData({
+          ...data,
           Achievements: {
-            ...formData.Achievements,
+            ...data.Achievements,
             description: e.target.value,
           },
         });
@@ -112,62 +99,59 @@ function Form(handleData) {
       default:
         break;
     }
-    handleData(formData);
   }
 
   function handleChangeProjects(e) {
     switch (e.target.attributes.label.value) {
       case 'title':
-        setFormData({
-          ...formData,
-          Projects: { ...formData.Projects, title: e.target.value },
+        handleData({
+          ...data,
+          Projects: { ...data.Projects, title: e.target.value },
         });
         break;
       case 'description':
-        setFormData({
-          ...formData,
-          Projects: { ...formData.Projects, description: e.target.value },
+        handleData({
+          ...data,
+          Projects: { ...data.Projects, description: e.target.value },
         });
         break;
       default:
         break;
     }
-    handleData(formData);
   }
   function handleChangeOther(e) {
-    setFormData({
-      ...formData,
+    handleData({
+      ...data,
       Other: e.target.value,
     });
-    handleData(formData);
   }
   return (
     <>
       <div id='form'>
         <SubForm
-          object={formData.Header}
+          object={data.Header}
           heading={'Intro'}
           onChange={handleChangeHeader}
         />
         <SubForm
-          object={formData.Experience}
+          object={data.Experience}
           heading={'Experience'}
-          onchange={handleChangeExperience}
+          onChange={handleChangeExperience}
         />
         <SubForm
-          object={formData.Education}
+          object={data.Education}
           heading={'Education'}
-          onchange={handleChangeEducation}
+          onChange={handleChangeEducation}
         />
         <SubForm
-          object={formData.Achievements}
+          object={data.Achievements}
           heading={'Achievements'}
-          onchange={handleChangeAchievements}
+          onChange={handleChangeAchievements}
         />
         <SubForm
-          object={formData.Projects}
+          object={data.Projects}
           heading={'Projects'}
-          onchange={handleChangeProjects}
+          onChange={handleChangeProjects}
         />
         <div className='form-section' id='other'>
           <h1 className='form-section-heading'>Other</h1>
