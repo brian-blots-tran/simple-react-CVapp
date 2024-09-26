@@ -12,14 +12,6 @@
   padding-top: 30px;
   scrollbar-width: thin;
 }
-#preview {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  overflow-y: scroll;
-  scrollbar-width: none;
-  width: 70%;
-}
 
 .form-section {
   width: 100%;

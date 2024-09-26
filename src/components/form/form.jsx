@@ -3,7 +3,7 @@ import './form.css';
 import InputArea from '../inputs/inputArea';
 import SubForm from '../subForm/subForm';
 import { useState } from 'react';
-function Form() {
+function Form(handleData) {
   const [formData, setFormData] = useState({
     Header: { name: '', occupation: '', summary: '' },
     Experience: { date: '', title: '', company: '', description: '' },
@@ -35,8 +35,9 @@ function Form() {
         });
         break;
       default:
-        return;
+        break;
     }
+    handleData(formData);
   }
 
   function handleChangeExperience(e) {
@@ -66,8 +67,9 @@ function Form() {
         });
         break;
       default:
-        return;
+        break;
     }
+    handleData(formData);
   }
 
   function handleChangeEducation(e) {
@@ -85,8 +87,9 @@ function Form() {
         });
         break;
       default:
-        return;
+        break;
     }
+    handleData(formData);
   }
 
   function handleChangeAchievements(e) {
@@ -107,8 +110,9 @@ function Form() {
         });
         break;
       default:
-        return;
+        break;
     }
+    handleData(formData);
   }
 
   function handleChangeProjects(e) {
@@ -126,14 +130,16 @@ function Form() {
         });
         break;
       default:
-        return;
+        break;
     }
+    handleData(formData);
   }
   function handleChangeOther(e) {
     setFormData({
       ...formData,
       Other: e.target.value,
     });
+    handleData(formData);
   }
   return (
     <>
@@ -166,35 +172,6 @@ function Form() {
         <div className='form-section' id='other'>
           <h1 className='form-section-heading'>Other</h1>
           <InputArea label={'other'} onChange={handleChangeOther} />
-        </div>
-      </div>
-
-      <div id='preview'>
-        <div className='' id='preview-header'>
-          <div className=''>{formData.Header.name}</div>
-          <div className=''>{formData.Header.occupation}</div>
-          <div className=''> {formData.Header.summary}</div>
-        </div>
-        <div className='' id='preview-experience'>
-          <div className=''>{formData.Experience.dateRange}</div>
-          <div className=''>{formData.Experience.title}</div>
-          <div className=''> {formData.Experience.company}</div>
-          <div className=''> {formData.Experience.description}</div>
-        </div>
-        <div className='' id='preview-education'>
-          <div className=''>{formData.Education.degree}</div>
-          <div className=''>{formData.Education.institution}</div>
-        </div>
-        <div className='' id='preview-achievements'>
-          <div className=''>{formData.Achievements.title}</div>
-          <div className=''>{formData.Achievements.description}</div>
-        </div>
-        <div className='' id='preview-projects'>
-          <div className=''>{formData.Projects.title}</div>
-          <div className=''>{formData.Projects.description}</div>
-        </div>
-        <div className='' id='preview-other'>
-          <div className=''>{formData.Other}</div>
         </div>
       </div>
     </>
